@@ -4,11 +4,8 @@ A production-ready full-stack web application for managing a grocery store's pro
 
 **Stack:** Python Flask · MySQL · HTML/CSS/JS · Bootstrap 5
 
----
-
 ## 📁 Project Structure
 
-```
 grocery-webapp/
 ├── backend/
 │   ├── server.py           # Flask app + all REST API routes
@@ -35,9 +32,7 @@ grocery-webapp/
 │   └── schema.sql          # MySQL schema + seed data
 │
 └── README.md
-```
 
----
 
 ## 🚀 Local Development Setup
 
@@ -48,45 +43,42 @@ grocery-webapp/
 
 ### Step 1 — Set up MySQL
 
-```bash
+bash
 # Log into MySQL
 mysql -u root -p
 
 # Run the schema file
 source /path/to/grocery-webapp/database/schema.sql;
-```
+
 
 ### Step 2 — Configure Environment
 
-```bash
+bash
 cd backend
 cp .env.example .env
-```
 
 Edit `.env` with your MySQL credentials:
 
-```env
+`env
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=your_password
 DB_NAME=grocery_store
 DB_PORT=3306
-```
+
 
 ### Step 3 — Install Python Dependencies
 
-```bash
+bash
 cd backend
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-```
 
 ### Step 4 — Start the Backend
 
-```bash
+bash
 python server.py
-```
 
 Backend runs at: **http://localhost:5000**
 
@@ -94,10 +86,9 @@ Backend runs at: **http://localhost:5000**
 
 Open `frontend/index.html` directly in your browser, or use the Live Server extension in VS Code.
 
-Make sure `frontend/js/config.js` has:
-```js
+Make sure frontend/js/config.js has:
+js
 API_BASE_URL: "http://localhost:5000"
-```
 
 ---
 
@@ -114,62 +105,6 @@ API_BASE_URL: "http://localhost:5000"
 | GET    | `/orders`           | Get all orders           |
 | POST   | `/orders`           | Place a new order        |
 
-### Example POST /products
-```json
-{
-  "name": "Basmati Rice",
-  "uom_id": 1,
-  "price_per_unit": 85.00
-}
-```
-
-### Example POST /orders
-```json
-{
-  "customer_name": "Ravi Kumar",
-  "grand_total": 255.00,
-  "order_details": [
-    { "product_id": 1, "quantity": 3, "total_price": 255.00 }
-  ]
-}
-```
-
----
-
-## ☁️ Deployment Guide
-
-### Backend → Render
-
-1. Push your project to GitHub.
-2. Go to [render.com](https://render.com) → **New → Web Service**.
-3. Connect your GitHub repo.
-4. Configure:
-   - **Root Directory:** `backend`
-   - **Build Command:** `pip install -r requirements.txt`
-   - **Start Command:** `gunicorn server:app`
-   - **Environment:** Python 3
-5. Add environment variables in Render dashboard:
-   ```
-   DB_HOST      = your-mysql-host
-   DB_USER      = your-user
-   DB_PASSWORD  = your-password
-   DB_NAME      = grocery_store
-   DB_PORT      = 3306
-   ```
-6. Deploy. Note your Render URL (e.g. `https://freshmart-api.onrender.com`).
-
-> 💡 For MySQL in production, use **PlanetScale**, **Railway**, or **Amazon RDS**.
-
-### Frontend → Netlify / Vercel
-
-1. Update `frontend/js/config.js`:
-   ```js
-   API_BASE_URL: "https://freshmart-api.onrender.com"
-   ```
-2. **Netlify:** Drag & drop the `frontend/` folder at [netlify.com](https://netlify.com).
-3. **Vercel:** Run `vercel` in the `frontend/` directory.
-
----
 
 ## ✨ Features
 
@@ -183,7 +118,6 @@ API_BASE_URL: "http://localhost:5000"
 - ✅ Gunicorn-ready for production deployment
 - ✅ MySQL schema with seed data
 
----
 
 ## 🛠️ Tech Stack
 
