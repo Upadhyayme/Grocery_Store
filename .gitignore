@@ -1,0 +1,12 @@
+# Python
+backend/__pycache__/
+backend/*.pyc
+backend/venv/
+backend/.venv/
+
+# Environment - NEVER commit this!
+backend/.env
+
+# OS
+.DS_Store
+Thumbs.db
